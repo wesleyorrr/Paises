@@ -32,6 +32,12 @@ with engine.connect() as conexao:
     df = pd.read_sql(query, conexao)
 
 print(df)
+print("\nMédia do IDH:")
+print(df["IDH"].mean())
+
+print("\nPaíses ordenados pelo IDH:")
+print(df.sort_values(by="IDH", ascending=False))
+
 print("\nTotal de registros:", len(df))
 
 engine.dispose()
