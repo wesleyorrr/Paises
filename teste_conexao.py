@@ -59,3 +59,9 @@ print(len(paises_acima_media))
 
 print("\nQuantidade de países abaixo da média:")
 print(len(paises_abaixo_media))
+
+print("\nMédia do IDH por continente:")
+
+media_continente = df.groupby("Continente")["IDH"].mean()
+
+print(media_continente)
