@@ -65,3 +65,12 @@ print("\nMédia do IDH por continente:")
 media_continente = df.groupby("Continente")["IDH"].mean()
 
 print(media_continente)
+
+print("\nPaís com maior IDH por continente:")
+
+maior_idh_continente = df.loc[
+    df.groupby("Continente")["IDH"].idxmax(),
+    ["Continente", "Pais", "IDH"]
+]
+
+print(maior_idh_continente)
