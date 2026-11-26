@@ -41,3 +41,12 @@ print(df.sort_values(by="IDH", ascending=False))
 print("\nTotal de registros:", len(df))
 
 engine.dispose()
+
+media_idh = df["IDH"].mean()
+
+paises_acima_media = df[df["IDH"] > media_idh]
+
+print("\nPaíses com IDH acima da média:")
+print(paises_acima_media[["Pais", "IDH"]])
+
+
