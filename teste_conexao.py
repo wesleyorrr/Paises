@@ -53,3 +53,9 @@ paises_abaixo_media = df[df["IDH"] < media_idh]
 
 print("\nPaíses com IDH abaixo da média:")
 print(paises_abaixo_media[["Pais", "IDH"]])
+
+print("\nQuantidade de países acima da média:")
+print(len(paises_acima_media))
+
+print("\nQuantidade de países abaixo da média:")
+print(len(paises_abaixo_media))
