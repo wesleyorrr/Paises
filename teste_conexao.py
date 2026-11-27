@@ -132,3 +132,50 @@ ranking_pib = resumo_continentes.sort_values(
 )
 
 print(ranking_pib)
+
+print("\nRanking do PIB médio por continente:")
+
+ranking_pib = resumo_continentes.sort_values(
+    by="PIB_Trilhoes",
+    ascending=False
+)
+
+print(ranking_pib)
+
+print("\nParticipação percentual do PIB médio:")
+
+total_pib = resumo_continentes["PIB_Trilhoes"].sum()
+
+participacao_pib = (
+    resumo_continentes["PIB_Trilhoes"] / total_pib
+) * 100
+
+print(participacao_pib.round(2))
+
+
+print("\nValidação dos percentuais:")
+
+print("Total:", participacao_pib.sum().round(2), "%")
+
+print("\nIniciando tratamento dos dados:")
+
+# Remover espaços extras dos nomes das colunas
+df_excel.columns = df_excel.columns.str.strip()
+
+# Remover espaços extras dos campos de texto
+colunas_texto = df_excel.select_dtypes(include="object").columns
+
+for coluna in colunas_texto:
+    df_excel[coluna] = df_excel[coluna].str.strip()
+
+# Verificar valores ausentes
+print("\nValores ausentes:")
+print(df_excel.isnull().sum())
+
+# Verificar registros duplicados
+print("\nRegistros duplicados:")
+print(df_excel.duplicated().sum())
+
+# Verificar tipos de dados
+print("\nTipos de dados:")
+print(df_excel.dtypes)
