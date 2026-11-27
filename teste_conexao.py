@@ -114,3 +114,11 @@ maior_pib = resumo_continentes[
 ].idxmax()
 
 print(maior_pib)
+
+print("\nContinente com menor PIB médio:")
+
+menor_pib = resumo_continentes[
+    "PIB_Trilhoes"
+].idxmin()
+
+print(menor_pib)
