@@ -90,3 +90,10 @@ print("\nPIB médio por continente:")
 pib_medio_continente = df.groupby("Continente")["PIB_Trilhoes"].mean()
 
 print(pib_medio_continente.round(2))
+
+
+print("\nPopulação total por continente:")
+
+populacao_continente = df.groupby("Continente")["Populacao_Milhoes"].sum()
+
+print(populacao_continente)
