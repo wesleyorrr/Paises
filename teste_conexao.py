@@ -106,3 +106,11 @@ resumo_continentes = df.groupby("Continente").agg({
 })
 
 print(resumo_continentes.round(2))
+
+print("\nContinente com maior PIB médio:")
+
+maior_pib = resumo_continentes[
+    "PIB_Trilhoes"
+].idxmax()
+
+print(maior_pib)
