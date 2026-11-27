@@ -122,3 +122,13 @@ menor_pib = resumo_continentes[
 ].idxmin()
 
 print(menor_pib)
+
+
+print("\nRanking do PIB médio por continente:")
+
+ranking_pib = resumo_continentes.sort_values(
+    by="PIB_Trilhoes",
+    ascending=False
+)
+
+print(ranking_pib)
