@@ -84,3 +84,9 @@ ranking_continentes = df.sort_values(
 )
 
 print(ranking_continentes[["Continente", "Pais", "IDH"]])
+
+print("\nPIB médio por continente:")
+
+pib_medio_continente = df.groupby("Continente")["PIB_Trilhoes"].mean()
+
+print(pib_medio_continente.round(2))
