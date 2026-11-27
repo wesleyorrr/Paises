@@ -74,3 +74,13 @@ maior_idh_continente = df.loc[
 ]
 
 print(maior_idh_continente)
+
+
+print("\nRanking de IDH por continente:")
+
+ranking_continentes = df.sort_values(
+    by=["Continente", "IDH"],
+    ascending=[True, False]
+)
+
+print(ranking_continentes[["Continente", "Pais", "IDH"]])
