@@ -97,3 +97,12 @@ print("\nPopulação total por continente:")
 populacao_continente = df.groupby("Continente")["Populacao_Milhoes"].sum()
 
 print(populacao_continente)
+
+print("\nResumo econômico por continente:")
+
+resumo_continentes = df.groupby("Continente").agg({
+    "Populacao_Milhoes": "sum",
+    "PIB_Trilhoes": "mean"
+})
+
+print(resumo_continentes.round(2))
