@@ -220,3 +220,30 @@ df_excel.columns = [
 
 print("\nColunas padronizadas:")
 print(df_excel.columns.tolist())
+
+
+df_excel["Populacao_Milhoes"]
+print("\nConferência final da base:")
+
+print("Quantidade de linhas:", len(df_excel))
+print("Quantidade de colunas:", len(df_excel.columns))
+
+print("\nPrimeiros registros:")
+print(df_excel.head())
+
+print("\nTipos de dados da base tratada:")
+print(df_excel.dtypes)
+
+print("\nValidação dos valores numéricos:")
+
+print("População menor ou igual a zero:",
+      (df_excel["Populacao_Milhoes"] <= 0).sum())
+
+print("PIB negativo:",
+      (df_excel["PIB_Trilhoes"] < 0).sum())
+
+print("Área menor ou igual a zero:",
+      (df_excel["Area_Km2"] <= 0).sum())
+
+print("IDH fora do intervalo de 0 a 1:",
+      (~df_excel["IDH"].between(0, 1)).sum())
