@@ -157,13 +157,18 @@ print("\nValidação dos percentuais:")
 
 print("Total:", participacao_pib.sum().round(2), "%")
 
+df_excel = pd.read_excel(
+    "dados/Paises.xlsx",
+    sheet_name="Bases",
+    header=0
+)
 print("\nIniciando tratamento dos dados:")
 
 # Remover espaços extras dos nomes das colunas
 df_excel.columns = df_excel.columns.str.strip()
 
 # Remover espaços extras dos campos de texto
-colunas_texto = df_excel.select_dtypes(include="object").columns
+colunas_texto = df_excel.select_dtypes(include="str").columns
 
 for coluna in colunas_texto:
     df_excel[coluna] = df_excel[coluna].str.strip()
@@ -179,3 +184,39 @@ print(df_excel.duplicated().sum())
 # Verificar tipos de dados
 print("\nTipos de dados:")
 print(df_excel.dtypes)
+
+excel = pd.ExcelFile("dados/Paises.xlsx")
+
+print("\nAbas encontradas no Excel:")
+print(excel.sheet_names)
+
+for aba in excel.sheet_names:
+    print(f"\nConteúdo inicial da aba: {aba}")
+
+    previa = pd.read_excel(
+        excel,
+        sheet_name=aba,
+        header=None,
+        nrows=10
+    )
+
+    print(previa)
+    
+    print("\nColunas da base tratada:")
+
+print(df_excel.columns.tolist())
+
+df_excel.columns = [
+    "Pais",
+    "Continente",
+    "Populacao_Milhoes",
+    "PIB_Trilhoes",
+    "Area_Km2",
+    "Expectativa_Vida",
+    "IDH",
+    "Moeda",
+    "Capital"
+]
+
+print("\nColunas padronizadas:")
+print(df_excel.columns.tolist())
